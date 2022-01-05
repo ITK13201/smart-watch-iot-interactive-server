@@ -39,12 +39,12 @@ class ApiClient:
             headers.update(extra)
         return headers
 
-    # def fetch_status(self, query: dict) -> requests.Response:
-    #     url = self._create_url("api/v1/statuses", query)
-    #     headers = self._create_headers()
-    #     response = requests.get(url=url, headers=headers)
-    #     logger.info(response.text)
-    #     return response
+    def fetch_status(self) -> requests.Response:
+        url = self._create_url("api/v1/statuses")
+        headers = self._create_headers()
+        response = requests.get(url=url, headers=headers)
+        logger.info(response.text)
+        return response
 
     def create_status(self, query: dict) -> requests.Response:
         url = self._create_url("api/v1/statuses")

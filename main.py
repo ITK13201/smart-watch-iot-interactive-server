@@ -22,8 +22,8 @@ async def exec_command(ctx, args):
         await process.start()
     elif command == "stop":
         await process.stop()
-    # elif command == "status":
-    #     await status(ctx, args)
+    elif command == "status":
+        await process.status()
     else:
         err = ErrorStruct(key=command, value="command not found")
         errors = [err]
