@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+"discord.py" = "*"
+requests = "*"
+
+[dev-packages]
+black = "*"
+watchdog = "*"
+pyyaml = "*"
+argh = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+start = "python main.py"
+watch = "watchmedo tricks-from tricks.yml"
+format = "black ."
