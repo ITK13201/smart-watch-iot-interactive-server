@@ -9,6 +9,7 @@ class ErrorStruct:
         self.key = key
         self.value = value
 
+
 async def send_error_message(ctx, errors: List[ErrorStruct]):
     embed = discord.Embed(
         title="[ERROR]",
@@ -18,6 +19,7 @@ async def send_error_message(ctx, errors: List[ErrorStruct]):
     for err in errors:
         embed.add_field(name=err.key, value=err.value, inline=False)
     await ctx.channel.send(embed=embed)
+
 
 async def send_info_message(ctx, description: str):
     embed = discord.Embed(

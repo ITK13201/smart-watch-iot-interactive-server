@@ -10,12 +10,12 @@ class Process:
         self.ctx = ctx
 
     async def start(self):
-        query = {
-            "status": "active"
-        }
+        query = {"status": "active"}
         response = apiClient.create_status(query)
         if response.status_code == 201:
-            await send_info_message(ctx=self.ctx, description="Smart Watch IoT System Started!")
+            await send_info_message(
+                ctx=self.ctx, description="Smart Watch IoT System Started!"
+            )
         else:
             raw_data = response.text
             data = json.loads(raw_data)
@@ -27,12 +27,12 @@ class Process:
             await send_error_message(ctx=self.ctx, errors=errors)
 
     async def stop(self):
-        query = {
-            "status": "inactive"
-        }
+        query = {"status": "inactive"}
         response = apiClient.create_status(query)
         if response.status_code == 201:
-            await send_info_message(ctx=self.ctx, description="Smart Watch IoT System Stopped!")
+            await send_info_message(
+                ctx=self.ctx, description="Smart Watch IoT System Stopped!"
+            )
         else:
             raw_data = response.text
             data = json.loads(raw_data)
@@ -48,7 +48,10 @@ class Process:
         if response.status_code == 200:
             raw_data = response.text
             data: Dict[str, str] = json.loads(raw_data)
-            await send_info_message(ctx=self.ctx, description="Smart Watch IoT System status: {}".format(data["status"]))
+            await send_info_message(
+                ctx=self.ctx,
+                description="Smart Watch IoT System status: {}".format(data["status"]),
+            )
         else:
             raw_data = response.text
             data = json.loads(raw_data)
