@@ -1,10 +1,7 @@
 import logging
 from typing import List
 import discord
-import json
-from datetime import datetime as dt
 
-from infrastructure.apiclient import apiClient
 from config.config import DISCORD_BOT_TOKEN
 from usecase.utils import ErrorStruct, send_error_message
 from processes.process import Process
